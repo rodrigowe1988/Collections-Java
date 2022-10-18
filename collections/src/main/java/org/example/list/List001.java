@@ -1,6 +1,8 @@
 package org.example.list;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 //List notas = new ArrayList(); forma antiga de instanciar um array
@@ -50,6 +52,47 @@ public class List001 {
             System.out.println(nota);
         }
 
+        //Exiba a terceira nota adicionada
+        System.out.println(notas.get(2));
+
+        //Exiba a menor nota
+        Double menorNota = Collections.min(notas);
+        System.out.println("Menor nota: " + menorNota);
+
+        //Exiba a maior nota
+        Double maiorNota = Collections.max(notas);
+        System.out.println("Maior nota: " + maiorNota);
+
+        //Exiba a soma dos valores
+        Iterator<Double> iterator = notas.iterator();
+        Double soma = 0d;
+        while(iterator.hasNext()) {
+            Double next = iterator.next();
+            soma += next;
+        }
+        System.out.println("A soma das notas é: " + soma);
+
+        //Exiba a média das notas
+        System.out.printf("A média das notas é: %.2f\n", soma/notas.size());
+
+        //Remova a nota 0
+        notas.remove(notas.indexOf(0d));
+        System.out.println(notas);
+
+        //Remova as notas menores que 7 e exiba a lista:
+        Iterator<Double> iterator2 = notas.iterator();
+        while(iterator2.hasNext()) {
+            Double next = iterator2.next();
+            if(next < 7) iterator2.remove();
+        }
+        System.out.println(notas);
+
+        //Apague toda a lista
+        notas.clear();
+        System.out.println(notas);
+
+        //Confira se a lista está vazia
+        System.out.println("A lista está vazia" + notas.isEmpty());
     }
 
 
